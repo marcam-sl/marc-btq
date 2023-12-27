@@ -43,7 +43,7 @@ if(process.env.ENABLE_TRACING == "1") {
   const { OTLPTraceExporter } = require("@opentelemetry/exporter-otlp-grpc");
 
   const provider = new NodeTracerProvider();
-  
+
   const collectorUrl = process.env.COLLECTOR_SERVICE_ADDR
 
   provider.addSpanProcessor(new SimpleSpanProcessor(new OTLPTraceExporter({url: collectorUrl})));
@@ -106,10 +106,15 @@ function _getCurrencyData (callback) {
  * Helper function that handles decimal/fractional carrying
  */
 function _carry (amount) {
+
   const fractionSize = Math.pow(10, 9);
+
   amount.nanos += (amount.units % 1) * fractionSize;
+
   amount.units = Math.floor(amount.units) + Math.floor(amount.nanos / fractionSize);
+
   amount.nanos = amount.nanos % fractionSize;
+
   return amount;
 }
 
