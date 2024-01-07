@@ -10,7 +10,7 @@ pipeline {
 
   parameters {
     string(name: 'APP_NAME', defaultValue: 'public-BTQ', description: 'name of the app (integration build)')
-    string(name: 'machine_dns', defaultValue: 'your_dns', description: 'name of the app (integration build)')
+    string(name: 'machine_dns', defaultValue: 'marc.btq.sealights.co', description: 'name of the app (integration build)')
     string(name: 'BRANCH', defaultValue: 'public', description: 'Branch to clone')
     string(name: 'CHANGED_BRANCH', defaultValue: 'changed-branch', description: 'Branch to compare')
     string(name: 'BUILD_BRANCH', defaultValue: 'public', description: 'Branch to Build images that have the creational LAB_ID (send to public branch to build)')
@@ -35,7 +35,7 @@ pipeline {
     stage('Clone Repository') {
       steps {
         script {
-          git branch: params.BRANCH, url: 'https://github.com/Sealights/microservices-demo-template.git'
+          git branch: params.BRANCH, url: 'https://github.com/Sealights-btq/marc-btq.git'
           
         }
       }
@@ -64,7 +64,7 @@ pipeline {
           def IDENTIFIER= "${params.BRANCH}-${env.CURRENT_VERSION}"
           env.LAB_ID = create_lab_id(
           token: "${params.SL_TOKEN}",
-          machine: "https://dev-integration.dev.sealights.co",
+          machine: "https://btq-marc.dev.sealights.co",
           app: "${params.APP_NAME}",
           branch: "${params.BUILD_BRANCH}",
           test_env: "${IDENTIFIER}",
