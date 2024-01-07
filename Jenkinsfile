@@ -64,7 +64,7 @@ pipeline {
           def IDENTIFIER= "${params.BRANCH}-${env.CURRENT_VERSION}"
           env.LAB_ID = create_lab_id(
           token: "${params.SL_TOKEN}",
-          machine: "https://btq-marc.dev.sealights.co",
+          machine: "https://btq-marc.sealights.co",
           app: "${params.APP_NAME}",
           branch: "${params.BUILD_BRANCH}",
           test_env: "${IDENTIFIER}",
