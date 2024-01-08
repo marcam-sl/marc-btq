@@ -93,17 +93,17 @@ pipeline {
             token: params.SL_TOKEN,
             machine_dns: "${params.machine_dns}:8081",
             Run_all_tests: params.Run_all_tests,
-            Cucumber: params.Cucumber
-            Cypress: params.Cypress
-            Junit_with_testNG: params.Junit_with_testNG
-            Junit_without_testNG: params.Junit_without_testNG
-            Junit_with_testNG_gradle: params.Junit_with_testNG_gradle
-            Mocha: params.Mocha
-            MS: params.Mocha
-            NUnit: params.NUnit
-            Postman: params.Postman
-            Pytest: params.Pytest
-            Robot: params.Robot
+            Cucumber: params.Cucumber,
+            Cypress: params.Cypress,
+            Junit_with_testNG: params.Junit_with_testNG,
+            Junit_without_testNG: params.Junit_without_testNG,
+            Junit_with_testNG_gradle: params.Junit_with_testNG_gradle,
+            Mocha: params.Mocha,
+            MS: params.Mocha,
+            NUnit: params.NUnit,
+            Postman: params.Postman,
+            Pytest: params.Pytest,
+            Robot: params.Robot,
             Soapui: params.Soapui
           )
         }
