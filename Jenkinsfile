@@ -91,7 +91,20 @@ pipeline {
             branch: params.BRANCH,
             lab_id: env.LAB_ID,
             token: params.SL_TOKEN,
-            machine_dns: "${params.machine_dns}:8081"
+            machine_dns: "${params.machine_dns}:8081",
+            Run_all_tests: params.Run_all_tests,
+            Cucumber: params.Cucumber
+            Cypress: params.Cypress
+            Junit_with_testNG: params.Junit_with_testNG
+            Junit_without_testNG: params.Junit_without_testNG
+            Junit_with_testNG_gradle: params.Junit_with_testNG_gradle
+            Mocha: params.Mocha
+            MS: params.Mocha
+            NUnit: params.NUnit
+            Postman: params.Postman
+            Pytest: params.Pytest
+            Robot: params.Robot
+            Soapui: params.Soapui
           )
         }
       }
@@ -142,7 +155,7 @@ def run_tests(Map params){
         string(name: 'SL_LABID', value: "${params.lab_id}"),
         string(name: 'SL_TOKEN', value: "${params.token}"),
         string(name: 'MACHINE_DNS', value: "http://${params.machine_dns}"),
-        booleanParam(name: 'Run_all_tests', value: params.Run_all_tests),
+        booleanParam(name: 'Run_all_tests', value: Boolean.valueOf(params.Run_all_tests)),
         booleanParam(name: 'Cucumber', value: params.Cucumber),
         booleanParam(name: 'Cypress', value: params.Cypress),
         booleanParam(name: 'Junit_with_testNG', value: params.Junit_with_testNG),
